@@ -74,7 +74,7 @@ export async function POST(request: Request) {
 
         // 3. Construct Verification URL
         // src/app/api/register/route.ts (ภายในฟังก์ชัน POST)
-        const verificationUrl = `${process.env.NEXTAUTH_URL}/verify-email?token=${rawToken}`;
+        const verificationUrl = `${process.env.NEXTAUTH_URL}/api/verify-email?token=${rawToken}`;
 
         // --- DEBUGGING LINES ---
         console.log("--- DEBUG INFO ---");
