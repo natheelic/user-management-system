@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"; // Import Footer
 import NextAuthProvider from "./providers/NextAuthProvider"; // <<< Import Provider
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,8 +24,8 @@ export default function RootLayout({
         {/* ใช้ Provider ครอบ Navbar และ Children */}
         <NextAuthProvider> {/* <<< ครอบด้วย Provider */}
             <Navbar />
-            <main>{children}</main>
-            {/* Footer etc. */}
+            <main className="flex-grow">{children}</main> {/* ให้ main ขยายเต็มพื้นที่ที่เหลือ */}
+            <Footer /> {/* <<< เพิ่ม Footer ที่นี่ */}
         </NextAuthProvider> {/* <<< ปิด Provider */}
       </body>
     </html>
