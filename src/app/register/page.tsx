@@ -53,9 +53,14 @@ export default function RegisterPage() {
       setConfirmPassword('');
       // อาจจะ redirect ไปหน้า login หรือหน้าแจ้งเตือน
 
-    } catch (error: any) {
-      console.error('Registration failed:', error);
-      setError(error.message || 'Registration failed. Please try again.');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Registration failed:', error);
+        setError(error.message || 'Registration failed. Please try again.');
+      } else {
+        console.error('An unexpected error occurred:', error);
+        setError('An unexpected error occurred. Please try again.');
+      }
       // toast.error(error.message || 'Registration failed. Please try again.'); // ใช้ toast ทีหลัง
     } finally {
       setIsLoading(false);
