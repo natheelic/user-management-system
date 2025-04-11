@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { ThemeSwitcher } from './ThemeSwitcher'; // ปรับ Path ตามต้องการ
 
 export default function Navbar() {
   const { data: session, status } = useSession();
@@ -18,7 +19,8 @@ export default function Navbar() {
             {/* Add other nav links here if needed */}
             {/* <Link href="/dashboard" className="ml-4 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Dashboard</Link> */}
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center space-x-2">
+          <ThemeSwitcher /> {/* <<< วางปุ่มที่นี่ */}
             {status === 'loading' && (
               <span className="text-sm text-gray-500">Loading...</span>
             )}

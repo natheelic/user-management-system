@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-black dark:bg-slate-900 dark:text-white;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
